@@ -12,7 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('uni_clients', function (Blueprint $table) {
-            $table->id('clients_id');
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
             $table->string('clients_pass')->nullable();
             $table->string('clients_email')->nullable();
             $table->timestamp('clients_datetime_add')->nullable();
@@ -48,7 +54,6 @@ return new class extends Migration
             $table->string('clients_patronymic')->nullable();
             $table->integer('clients_delivery_status')->default(0);
             $table->string('clients_delivery_id_point_send')->nullable();
-            $table->timestamps();
         });
     }
 

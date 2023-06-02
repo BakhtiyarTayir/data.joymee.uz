@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Uni_ad;
+use App\Http\Resources\UniAdResource;
+use App\Models\UniAd;
 use Illuminate\Http\Request;
 
 class UniAdController extends Controller
@@ -12,7 +13,9 @@ class UniAdController extends Controller
      */
     public function index()
     {
-        //
+        $ads = UniAd::all();
+        return UniAdResource::collection($ads);
+//        return view('ads.index', compact('ads'));
     }
 
     /**
@@ -34,7 +37,7 @@ class UniAdController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Uni_ad $uni_ad)
+    public function show(UniAd $uni_ad)
     {
         //
     }
@@ -42,7 +45,7 @@ class UniAdController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Uni_ad $uni_ad)
+    public function edit(UniAd $uni_ad)
     {
         //
     }
@@ -50,7 +53,7 @@ class UniAdController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Uni_ad $uni_ad)
+    public function update(Request $request, UniAd $uni_ad)
     {
         //
     }
@@ -58,7 +61,7 @@ class UniAdController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Uni_ad $uni_ad)
+    public function destroy(UniAd $uni_ad)
     {
         //
     }

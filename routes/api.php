@@ -32,3 +32,10 @@ Route::group([
     Route::post('me', 'AuthController@me');
 
 });
+
+Route::group([
+    'middleware' => 'api',
+
+], function () {
+    Route::get('/ads', [\App\Http\Controllers\UniAdController::class, 'index']);
+});

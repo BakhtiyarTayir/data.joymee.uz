@@ -46,10 +46,10 @@ return new class extends Migration
             $table->text('ads_import_images')->nullable();
             $table->string('ads_video')->nullable();
             $table->string('ads_tour')->nullable();
-            $table->integer('ads_vip');
-            $table->integer('ads_auto_renewal');
-            $table->integer('ads_online_view');
-            $table->float('ads_price_old');
+            $table->integer('ads_vip')->default(0);
+            $table->integer('ads_auto_renewal')->default(0);
+            $table->integer('ads_online_view')->default(0);
+            $table->float('ads_price_old')->default(0);
             $table->text('ads_filter_tags')->nullable();
             $table->integer('ads_price_free')->default(0);
             $table->integer('ads_available')->default(0);
@@ -68,6 +68,7 @@ return new class extends Migration
             $table->text('ads_electron_product_text')->nullable();
             $table->integer('ads_delivery_status')->default(0);
             $table->integer('ads_delivery_weight')->default(0);
+            $table->timestamps();
 
         });
     }
