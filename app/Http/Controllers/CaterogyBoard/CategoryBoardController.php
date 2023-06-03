@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\CaterogyBoard;
 
-use App\Http\Resources\UniAdResource;
-use App\Models\Ads\UniAd;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\CategoryBoardResource;
+use App\Models\CategoryBoard\UniCategoryBoard;
 use Illuminate\Http\Request;
 
-class UniAdController extends Controller
+class CategoryBoardController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $ads = UniAd::all();
-        return UniAdResource::collection($ads);
-//        return view('ads.index', compact('ads'));
+     $category_boards = UniCategoryBoard::all();
+     return CategoryBoardResource::collection($category_boards);
     }
 
     /**
@@ -37,7 +37,7 @@ class UniAdController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(UniAd $uni_ad)
+    public function show(UniCategoryBoard $uniCategoryBoard)
     {
         //
     }
@@ -45,7 +45,7 @@ class UniAdController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(UniAd $uni_ad)
+    public function edit(UniCategoryBoard $uniCategoryBoard)
     {
         //
     }
@@ -53,7 +53,7 @@ class UniAdController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, UniAd $uni_ad)
+    public function update(Request $request, UniCategoryBoard $uniCategoryBoard)
     {
         //
     }
@@ -61,7 +61,7 @@ class UniAdController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(UniAd $uni_ad)
+    public function destroy(UniCategoryBoard $uniCategoryBoard)
     {
         //
     }

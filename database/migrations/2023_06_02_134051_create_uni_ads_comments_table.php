@@ -11,7 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('uni_ads_comments', function (Blueprint $table) {
             Schema::create('uni_ads_comments', function (Blueprint $table) {
                 $table->id('ads_comments_id');
                 $table->unsignedBigInteger('ads_comments_id_user')->default(0);
@@ -27,7 +26,6 @@ return new class extends Migration
                 // $table->foreign('ads_comments_id_parent')->references('ads_comments_id')->on('uni_ads_comments');
                 // $table->foreign('ads_comments_id_ad')->references('id')->on('ads');
             });
-        });
     }
 
     /**

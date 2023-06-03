@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('uni_category_boards', function (Blueprint $table) {
+        Schema::create('uni_category_board', function (Blueprint $table) {
             $table->id('category_board_id');
             $table->string('category_board_name')->nullable();
             $table->integer('category_board_visible')->default(1);
@@ -50,6 +50,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('uni_category_boards');
+        Schema::dropIfExists('uni_category_board');
     }
 };

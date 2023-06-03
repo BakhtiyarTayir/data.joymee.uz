@@ -3,7 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\UniAd;
+use App\Models\CategoryBoard\UniCategoryBoard;
+use App\Models\Ads\UniAd;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
 
     {
-         \App\Models\UniCategoryBoard::factory(10)->create();
+         UniCategoryBoard::factory(10)->create();
          UniAd::factory(40)->create();
 
 //         \App\Models\UniAd::factory()->create([
