@@ -15,9 +15,10 @@ class CategoryBoardResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'ads_category_id' => $this->category_board_id,
+            'category_id' => $this->category_board_id,
             'name' => $this->category_board_name,
             'category_board_id_parent' => $this->category_board_id_parent,
+            'subcategories' => '',
         ];
     }
 }

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->text('ads_title')->nullable();
             $table->text('ads_alias')->nullable();
             $table->text('ads_text')->nullable();
-            $table->integer('ads_id_cat')->index()->default(0);
+            $table->unsignedBiginteger('ads_id_cat')->default(0);
             $table->timestamp('ads_datetime_add')->index()->nullable();
             $table->timestamp('ads_datetime_view')->nullable();
             $table->integer('ads_id_user')->index()->default(0);
@@ -70,6 +70,8 @@ return new class extends Migration
             $table->integer('ads_delivery_weight')->default(0);
             $table->timestamps();
 
+            $table->index('ads_id_cat', 'ads_category_idx');
+            $table->foreign('ads_id_cat', 'ads_category_fk')->on('uni_category_board')->references('category_board_id');
         });
     }
 

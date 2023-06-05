@@ -34,14 +34,15 @@ Route::group([
 });
 
 Route::group([
-    'middleware' => 'api',
+//    'middleware' => 'api',
+//    'prefix'=> 'api/v1'
 
 ], function () {
     Route::get('/ads', [\App\Http\Controllers\UniAdController::class, 'index']);
     // Получение списка категорий объявлений
-    Route::get('/ad_categories', [\App\Http\Controllers\CaterogyBoard\CategoryBoardController::class, 'index']);
+    Route::get('/ad_categories', [\App\Http\Controllers\Api\V1\CategoryBoardController::class, 'index']);
 
-// Получение конкретной категории объявления по идентификатору
-    Route::get('/ad_categories/{id}', [\App\Http\Controllers\CaterogyBoard\CategoryBoardController::class, 'show']);
+    // Получение конкретной категории объявления по идентификатору
+    Route::get('/ad_categories/{id}', [\App\Http\Controllers\Api\V1\CategoryBoardController::class, 'show']);
 
 });
