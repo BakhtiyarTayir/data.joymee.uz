@@ -14,6 +14,15 @@ class UniAdResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->ads_id,
+            'title' => $this->ads_title,
+            'category_id' => $this->ads_id_cat,
+            'user_id' => $this->ads_id_user,
+            'images' => $this->ads_images,
+            'address' => $this->ads_address,
+            'latitude' => $this->ads_latitude,
+            'longitude' => $this->ads_longitude,
+        ];
     }
 }

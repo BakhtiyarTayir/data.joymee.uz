@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryBoardResource;
+use App\Http\Resources\UniAdResource;
+use App\Models\Ads\UniAd;
 use App\Models\CategoryBoard\UniCategoryBoard;
 use Illuminate\Http\Request;
 
@@ -46,6 +48,16 @@ class CategoryBoardController extends Controller
 
 //     return CategoryBoardResource::collection($response);
         return  response()->json(['data' => $response]);
+    }
+
+    public function ads(Request $request)
+    {
+        $categoryIds = $request->input('category_ids');
+
+        $ads = UniAd::whereIn('ads_id_cat', $categoryIds)->get();
+
+//        return response()->json(['data' => $ads]);
+        return UniAdResource::collection($ads);
     }
 
     /**

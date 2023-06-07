@@ -44,5 +44,10 @@ Route::group([
 
     // Получение конкретной категории объявления по идентификатору
     Route::get('/ad_categories/{id}', [\App\Http\Controllers\Api\V1\CategoryBoardController::class, 'show']);
+    Route::get('/ads_cat', [\App\Http\Controllers\Api\V1\CategoryBoardController::class, 'ads']);
+
+    Route::get('/ads', [\App\Http\Controllers\Api\V1\AdController::class, 'index']);
+    Route::post('/ads', [\App\Http\Controllers\Api\V1\AdController::class, 'index']);
+    Route::get('/ads', [\App\Http\Controllers\Api\V1\AdController::class, 'index']);
 
 });
