@@ -24,12 +24,12 @@ Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'
 
-], function ($router) {
+], function () {
 
-    Route::post('login', 'AuthController@login');
-    Route::post('logout', 'AuthController@logout');
-    Route::post('refresh', 'AuthController@refresh');
-    Route::post('me', 'AuthController@me');
+    Route::post('login', [\App\Http\Controllers\AuthController::class, 'login']);
+    Route::post('logout', [\App\Http\Controllers\AuthController::class, 'logout']);
+    Route::post('refresh', [\App\Http\Controllers\AuthController::class, 'refresh']);
+    Route::post('me', [\App\Http\Controllers\AuthController::class, 'me']);
 
 });
 
@@ -38,16 +38,15 @@ Route::group([
 //    'prefix'=> 'api/v1'
 
 ], function () {
-    Route::get('/ads', [\App\Http\Controllers\UniAdController::class, 'index']);
+
     // Получение списка категорий объявлений
     Route::get('/ad_categories', [\App\Http\Controllers\Api\V1\CategoryBoardController::class, 'index']);
-
     // Получение конкретной категории объявления по идентификатору
     Route::get('/ad_categories/{id}', [\App\Http\Controllers\Api\V1\CategoryBoardController::class, 'show']);
     Route::get('/ads_cat', [\App\Http\Controllers\Api\V1\CategoryBoardController::class, 'ads']);
 
-    Route::get('/ads', [\App\Http\Controllers\Api\V1\AdController::class, 'index']);
-    Route::post('/ads', [\App\Http\Controllers\Api\V1\AdController::class, 'index']);
-    Route::get('/ads', [\App\Http\Controllers\Api\V1\AdController::class, 'index']);
-
 });
+
+
+
+Route::resource('ads', \App\Http\Controllers\Api\V1\UniAdController::class);
