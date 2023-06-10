@@ -1,0 +1,20 @@
+{
+    "ads_title": "test #8",
+    "ads_id_cat": 443,
+    "ads_alias": "aalias",
+    "ads_text" : "content",
+    "ads_city_id": 46213,
+    "ads_id_user": 1,
+    "ads_images": "[\"643af94d3d1d8.jpg\",\"643af94dba9c5.jpg\"]",
+    "ads_price" : "20000",
+    "ads_address": "улицa махорат Ипак Йули, 233, Ташкент, Узбекистан",
+    "ads_latitude": "43.334237",
+    "ads_longitude": "68.351674",
+    "ads_period_publication": "2023-06-12 14:03:57",
+    "ads_status" : 1,
+    "ads_region_id" : 196,
+    "ads_country_id" : 12,
+    "ads_currency" : "UZS",
+    "ads_period_day" : 30,
+    "ads_area_ids"   : 275
+}

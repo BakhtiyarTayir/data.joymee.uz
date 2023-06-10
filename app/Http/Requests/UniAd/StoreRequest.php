@@ -22,15 +22,25 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'ads_id' => 'integer',
             'ads_title' => 'string',
+            'ads_alias' => 'string',
             'ads_text' => 'string',
-            'ads_id_cat ' => 'integer',
+            'ads_id_cat' => 'integer',
             'ads_images' => 'string',
+            'ads_price' => 'string',
             'ads_id_user' => 'integer',
             'ads_address' => 'string',
             'ads_latitude' => 'string',
             'ads_longitude' => 'string',
+            "ads_period_publication" => 'string',
             'ads_city_id' => 'integer',
+            'ads_status' => 'integer',
+            'ads_region_id' => 'integer',
+            'ads_country_id' => 'integer',
+            'ads_currency' => 'string',
+            'ads_period_day' => 'integer',
+            'ads_area_ids'   => 'integer'
 
         ];
     }
