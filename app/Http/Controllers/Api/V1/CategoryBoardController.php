@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryBoardResource;
-use App\Http\Resources\UniAdResource;
+use App\Http\Resources\UniAd\UniAdResource;
 use App\Models\Ads\UniAd;
 use App\Models\CategoryBoard\UniCategoryBoard;
 use Illuminate\Http\Request;
@@ -19,12 +19,14 @@ class CategoryBoardController extends Controller
 //        $categories = UniCategoryBoard::all();
         $categories = UniCategoryBoard::where('category_board_id_parent', 0)->get();
 
+//        $data['main_image'] = Storage::put('/images', $data['main_image']);
 
         $response = [];
         foreach ($categories as $category) {
             $data = [
                 'category_id' => $category->category_board_id ,
                 'name' => $category->category_board_name,
+                'image_url' => 'joymee.loc/media/others/' . $category->category_board_image,
                 'category_board_id_parent' => $category->category_board_id_parent,
             ];
 
@@ -35,12 +37,13 @@ class CategoryBoardController extends Controller
                     $subcategoryData[] = [
                         'category_id' => $subcategory->category_board_id,
                         'name' => $subcategory->category_board_name,
+                        'image_url' => 'joymee.loc/media/others/' . $category->category_board_image,
                         'category_board_id_parent' => $subcategory->category_board_id_parent,
                     ];
                 }
                 $data['subcategories'] = $subcategoryData;
             } else {
-                $data['subcategories'] = 'none';
+                $data['subcategories'] = null;
             }
 
             $response[] = $data;

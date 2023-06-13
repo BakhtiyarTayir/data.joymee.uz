@@ -17,6 +17,7 @@ class CategoryBoardResource extends JsonResource
         return [
             'category_id' => $this->category_board_id,
             'name' => $this->category_board_name,
+            'image_url' => $this->category_board_image,
             'category_board_id_parent' => $this->category_board_id_parent,
             'subcategories' => '',
         ];
