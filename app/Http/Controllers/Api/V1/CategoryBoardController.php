@@ -26,7 +26,7 @@ class CategoryBoardController extends Controller
             $data = [
                 'category_id' => $category->category_board_id ,
                 'name' => $category->category_board_name,
-                'image_url' => 'joymee.loc/media/others/' . $category->category_board_image,
+                'image_url' =>  $category->category_board_image ?  'https://dev.joymee.uz/media/others/' . $category->category_board_image : null,
                 'category_board_id_parent' => $category->category_board_id_parent,
             ];
 
@@ -37,7 +37,7 @@ class CategoryBoardController extends Controller
                     $subcategoryData[] = [
                         'category_id' => $subcategory->category_board_id,
                         'name' => $subcategory->category_board_name,
-                        'image_url' => 'joymee.loc/media/others/' . $category->category_board_image,
+                        'image_url' => $subcategory->category_board_image ?  'https://dev.joymee.uz/media/others/' . $subcategory->category_board_image : null,
                         'category_board_id_parent' => $subcategory->category_board_id_parent,
                     ];
                 }
