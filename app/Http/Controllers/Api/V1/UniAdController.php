@@ -7,6 +7,7 @@ use App\Http\Requests\UniAd\StoreRequest;
 use App\Http\Requests\UniAd\UpdateRequest;
 use App\Http\Resources\UniAd\UniAdResource;
 use App\Models\Ads\UniAd;
+use App\Models\CategoryBoard\UniCategoryBoard;
 use Illuminate\Http\Request;
 
 class UniAdController extends Controller
@@ -78,4 +79,6 @@ class UniAdController extends Controller
             'message' => 'done'
         ]);
     }
+
+
 }
