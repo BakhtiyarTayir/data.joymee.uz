@@ -12,11 +12,16 @@ class UniAd extends Model
 
     protected $guarded = false;
 
+    protected $table = 'uni_ads';
     public const UPDATED_AT = 'ads_update';
     public const CREATED_AT = 'ads_datetime_add';
+
+    protected $primaryKey = 'ads_id';
+
 
     public function category()
     {
         return $this->belongsTo(UniCategoryBoard::class, 'category_board_id', 'ads_id_cat');
+
     }
 }

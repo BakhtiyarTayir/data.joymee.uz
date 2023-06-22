@@ -23,3 +23,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/ads', [\App\Http\Controllers\UniAdController::class, 'index'])->name('index');
+
+Route::get('/category', [\App\Http\Controllers\Api\V1\AdController::class, 'getAdsByCategory'])->name('category');

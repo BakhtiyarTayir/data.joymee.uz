@@ -19,10 +19,10 @@ class AdController extends Controller
     public function getAdsByCategory(Request $request, UniCategoryBoard $category)
     {
 
-//        dd($category);
 
         $ads = UniAd::where('ads_id_cat', $category->category_board_id)->get();
-
+        $ads = UniAd::find(1);
+        dd($ads);
         return response()->json($ads);
     }
 }

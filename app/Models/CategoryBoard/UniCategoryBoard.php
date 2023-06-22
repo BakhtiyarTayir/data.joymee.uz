@@ -11,8 +11,9 @@ class UniCategoryBoard extends Model
     use HasFactory;
     protected $guarded = false;
     protected $table = 'uni_category_board';
+    protected $primaryKey = 'category_board_id';
 
-    public function uniAd()
+    public function ads()
     {
         return $this->hasMany(UniAd::class, 'ads_id_cat', 'category_board_id');
     }
