@@ -20,8 +20,8 @@ class AdController extends Controller
     {
 
 
-        $ads = UniAd::where('ads_id_cat', $category->category_board_id)->get();
-        $ads = UniAd::find(1);
+        $ads = UniAd::where('ads_id_cat', 433)->get();
+//        $ads = UniAd::find(1);
         dd($ads);
         return response()->json($ads);
     }

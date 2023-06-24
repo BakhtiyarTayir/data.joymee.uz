@@ -52,4 +52,9 @@ Route::group([
 Route::resource('ads', \App\Http\Controllers\Api\V1\UniAdController::class);
 
 
+Route::resource('uni-ads', App\Http\Controllers\API\UniAdAPIController::class)
+    ->except(['create', 'edit']);
+
+Route::resource('uni-category-boards', App\Http\Controllers\API\UniCategoryBoardAPIController::class)
+    ->except(['create', 'edit']);
 
