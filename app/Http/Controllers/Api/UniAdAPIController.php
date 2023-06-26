@@ -100,7 +100,7 @@ class UniAdAPIController extends AppBaseController
         if (empty($uniAd)) {
             return $this->sendError('Uni Ad not found');
         }
-
+       
         $uniAd->delete();
 
         return $this->sendSuccess('Uni Ad deleted successfully');

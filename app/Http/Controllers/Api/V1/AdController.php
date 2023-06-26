@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\UniAdResource;
-use App\Models\Ads\UniAd;
-use App\Models\CategoryBoard\UniCategoryBoard;
+use App\Http\Resources\UniAd\UniAdResource;
+use App\Models\UniAd;
+use App\Models\UniCategoryBoard;
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
 class AdController extends Controller
@@ -19,10 +20,12 @@ class AdController extends Controller
     public function getAdsByCategory(Request $request, UniCategoryBoard $category)
     {
 
+        $ads = UniAd::where('ads_id_cat', $category->category_board_id)->get();
 
-        $ads = UniAd::where('ads_id_cat', 433)->get();
-//        $ads = UniAd::find(1);
-        dd($ads);
+        if ($ads->isEmpty()) {
+            return response()->json(['message' => 'Объявления не найдены'], Response::HTTP_NOT_FOUND);
+        }
+
         return response()->json($ads);
     }
 }
