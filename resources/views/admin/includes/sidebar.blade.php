@@ -14,7 +14,11 @@
                 <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">
+                    @if (auth()->check())
+                        {{ auth()->user()->name }}
+                    @endif
+                </a>
             </div>
         </div>
 
@@ -33,10 +37,6 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-                     with font-awesome or any other icon font library -->
-
-                <li class="nav-header">EXAMPLES</li>
                 <li class="nav-item">
                     <a href="{{ route('admin.ads.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-address-book"></i>
@@ -78,6 +78,25 @@
                         <i class="nav-icon fas fa-tags"></i>
                         <p>
                             Tags
+                            <span class="badge badge-info right"></span>
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.region.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-globe-asia"></i>
+                        <p>
+                            Regions
+                            <span class="badge badge-info right"></span>
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.city.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-globe-asia"></i>
+                        <p>
+                            Cities
                             <span class="badge badge-info right"></span>
                         </p>
                     </a>

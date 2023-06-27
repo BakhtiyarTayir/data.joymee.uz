@@ -22,7 +22,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/ads', [\App\Http\Controllers\UniAdController::class, 'index'])->name('index');
 
 Route::get('/category', [\App\Http\Controllers\Api\V1\AdController::class, 'getAdsByCategory'])->name('category');
 
@@ -83,5 +82,26 @@ Route::group(['namespace'=> 'Admin', 'prefix' => 'admin', 'middleware' => ['auth
         Route::get('/{user}/edit', [App\Http\Controllers\Admin\User\EditController::class, '__invoke'])->name('admin.user.edit');
         Route::patch('/{user}', [App\Http\Controllers\Admin\User\UpdateController::class, '__invoke'])->name('admin.user.update');
         Route::delete('/{user}', [App\Http\Controllers\Admin\User\DeleteController::class, '__invoke'])->name('admin.user.delete');
+    });
+
+    Route::group(['namespace' => 'Region', 'prefix' => 'regions'], function (){
+        Route::get('/', [App\Http\Controllers\Admin\Region\IndexController::class, '__invoke'])->name('admin.region.index');
+        Route::get('/create', [App\Http\Controllers\Admin\Region\CreateController::class, '__invoke'])->name('admin.region.create');
+        Route::post('/', [App\Http\Controllers\Admin\Region\StoreController::class, '__invoke'])->name('admin.region.store');
+        Route::get('/{region}', [App\Http\Controllers\Admin\Region\ShowController::class, '__invoke'])->name('admin.region.show');
+        Route::get('/{region}/edit', [App\Http\Controllers\Admin\Region\EditController::class, '__invoke'])->name('admin.region.edit');
+        Route::patch('/{region}', [App\Http\Controllers\Admin\Region\UpdateController::class, '__invoke'])->name('admin.region.update');
+        Route::delete('/{region}', [App\Http\Controllers\Admin\Region\DeleteController::class, '__invoke'])->name('admin.region.delete');
+    });
+
+
+    Route::group(['namespace' => 'City', 'prefix' => 'cities'], function (){
+        Route::get('/', [App\Http\Controllers\Admin\City\IndexController::class, '__invoke'])->name('admin.city.index');
+        Route::get('/create', [App\Http\Controllers\Admin\City\CreateController::class, '__invoke'])->name('admin.city.create');
+        Route::post('/', [App\Http\Controllers\Admin\City\StoreController::class, '__invoke'])->name('admin.city.store');
+        Route::get('/{city}', [App\Http\Controllers\Admin\City\ShowController::class, '__invoke'])->name('admin.city.show');
+        Route::get('/{city}/edit', [App\Http\Controllers\Admin\City\EditController::class, '__invoke'])->name('admin.city.edit');
+        Route::patch('/{city}', [App\Http\Controllers\Admin\City\UpdateController::class, '__invoke'])->name('admin.city.update');
+        Route::delete('/{city}', [App\Http\Controllers\Admin\City\DeleteController::class, '__invoke'])->name('admin.city.delete');
     });
 });

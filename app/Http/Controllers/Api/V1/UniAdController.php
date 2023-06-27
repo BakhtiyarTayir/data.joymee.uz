@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UniAd\StoreRequest;
 use App\Http\Requests\UniAd\UpdateRequest;
 use App\Http\Resources\UniAd\UniAdResource;
-use App\Models\Ads\UniAd;
-use App\Models\CategoryBoard\UniCategoryBoard;
+use App\Models\UniAd;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class UniAdController extends Controller
 {
@@ -80,6 +80,17 @@ class UniAdController extends Controller
         ]);
     }
 
+    public function getAdsByCategory(Request $request, \App\Models\UniCategoryBoard $category)
+    {
+
+        $ads = UniAd::where('ads_id_cat', $category->category_board_id)->get();
+
+        if ($ads->isEmpty()) {
+            return response()->json(['message' => 'Объявления не найдены'], Response::HTTP_NOT_FOUND);
+        }
+
+        return response()->json($ads);
+    }
 
 
 }
