@@ -79,6 +79,7 @@
                                     </tbody>
                                 </table>
                             </div>
+                            {{ $regions->links() }}
                             <!-- /.card-body -->
                         </div>
                     </div>

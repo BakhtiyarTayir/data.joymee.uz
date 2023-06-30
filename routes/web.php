@@ -84,6 +84,16 @@ Route::group(['namespace'=> 'Admin', 'prefix' => 'admin', 'middleware' => ['auth
         Route::delete('/{user}', [App\Http\Controllers\Admin\User\DeleteController::class, '__invoke'])->name('admin.user.delete');
     });
 
+    Route::group(['namespace' => 'Country', 'prefix' => 'countries'], function (){
+        Route::get('/', [App\Http\Controllers\Admin\Country\IndexController::class, '__invoke'])->name('admin.country.index');
+        Route::get('/create', [App\Http\Controllers\Admin\Country\CreateController::class, '__invoke'])->name('admin.country.create');
+        Route::post('/', [App\Http\Controllers\Admin\Country\StoreController::class, '__invoke'])->name('admin.country.store');
+        Route::get('/{country}', [App\Http\Controllers\Admin\Country\ShowController::class, '__invoke'])->name('admin.country.show');
+        Route::get('/{country}/edit', [App\Http\Controllers\Admin\Country\EditController::class, '__invoke'])->name('admin.country.edit');
+        Route::patch('/{country}', [App\Http\Controllers\Admin\Country\UpdateController::class, '__invoke'])->name('admin.country.update');
+        Route::delete('/{country}', [App\Http\Controllers\Admin\Country\DeleteController::class, '__invoke'])->name('admin.country.delete');
+    });
+
     Route::group(['namespace' => 'Region', 'prefix' => 'regions'], function (){
         Route::get('/', [App\Http\Controllers\Admin\Region\IndexController::class, '__invoke'])->name('admin.region.index');
         Route::get('/create', [App\Http\Controllers\Admin\Region\CreateController::class, '__invoke'])->name('admin.region.create');
