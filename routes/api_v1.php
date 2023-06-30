@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Country\CountryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -47,9 +48,13 @@ Route::group([
     Route::get('/categories/{category}/ads', [\App\Http\Controllers\Api\V1\UniAdController::class, 'getAdsByCategory']);
 
     Route::get('/region', [\App\Models\UniRegion::class, 'region']);
+
+    Route::get('/countries/{countryId}/regions', [\App\Http\Controllers\Api\V1\CountryController::class, 'getRegionsByCountry']);
+
+
 });
 
-
+Route::apiResource('countries', \App\Http\Controllers\Api\V1\CountryController::class);
 
 Route::resource('ads', \App\Http\Controllers\Api\V1\UniAdController::class);
 

@@ -23,9 +23,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/category', [\App\Http\Controllers\Api\V1\AdController::class, 'getAdsByCategory'])->name('category');
-
-
 
 Route::group(['namespace'=> 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function() {
 
