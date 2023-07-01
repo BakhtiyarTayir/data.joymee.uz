@@ -50,6 +50,9 @@ Route::group([
     Route::get('/region', [\App\Models\UniRegion::class, 'region']);
 
     Route::get('/countries/{countryId}/regions', [\App\Http\Controllers\Api\V1\CountryController::class, 'getRegionsByCountry']);
+    Route::get('/regions/{regionId}/cities', [\App\Http\Controllers\Api\V1\RegionController::class, 'getCitiesByRegion']);
+    Route::get('/countries/{countryId}/regions/{regionId}/cities', [\App\Http\Controllers\Api\V1\CountryController::class, 'getCitiesByCountryAndRegion']);
+
 
 
 });

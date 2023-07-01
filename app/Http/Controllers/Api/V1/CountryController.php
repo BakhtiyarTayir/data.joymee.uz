@@ -51,12 +51,24 @@ class CountryController extends Controller
         //
     }
 
-    public function getRegionsByCountry(UniRegion $region)
+    public function getRegionsByCountry($countryId)
     {
-        dd($region);
-        $regions = UniRegion::where('country_id', $region->country_id)->get();
+
+
+        $country = Country::findOrFail($countryId);
+        $regions = $country->regions;
 
         return response()->json($regions);
     }
+
+    public function getCitiesByCountryAndRegion($countryId, $regionId)
+    {
+        $country = Country::findOrFail($countryId);
+        $region = $country->regions()->findOrFail($regionId);
+        $cities = $region->cities;
+
+        return response()->json($cities);
+    }
+
 
 }

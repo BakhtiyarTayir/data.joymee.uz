@@ -61,13 +61,13 @@
                                     <tbody>
                                         @foreach($users as $user)
                                             <tr>
-                                                <td>{{ $user->id }}</td>
-                                                <td> {{ $user->name }}</td>
-                                                <td> {{ $user->created_at }}</td>
-                                                <td><a href="{{ route('admin.user.show', $user->id)  }}"><i class="fa fa-eye"></i></a></td>
-                                                <td><a href="{{ route('admin.user.edit', $user->id)  }}"><i class="far fa-edit"></i></a></td>
+                                                <td>{{ $user->clients_id }}</td>
+                                                <td> {{ $user->clients_name }}</td>
+                                                <td> {{ $user->clients_datetime_add }}</td>
+                                                <td><a href="{{ route('admin.user.show', $user->clients_id)  }}"><i class="fa fa-eye"></i></a></td>
+                                                <td><a href="{{ route('admin.user.edit', $user->clients_id)  }}"><i class="far fa-edit"></i></a></td>
                                                 <td>
-                                                    <form action="{{ route('admin.user.delete', $user->id) }}" method="post">
+                                                    <form action="{{ route('admin.user.delete', $user->clients_id) }}" method="post">
                                                         @csrf
                                                         @method('delete')
                                                         <button type="submit" class="text-danger btn-link border-0 bg-transparent"><i class="far fa-trash-alt"></i></button>

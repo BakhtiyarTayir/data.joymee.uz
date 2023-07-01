@@ -11,4 +11,9 @@ class City extends Model
     protected $guarded = false;
     protected  $table = "uni_city";
     protected $primaryKey = 'city_id';
+
+    public function region()
+    {
+        return $this->belongsTo(UniRegion::class, 'city_id', 'region_id');
+    }
 }

@@ -13,4 +13,15 @@ class UniRegion extends Model
 
     protected $primaryKey = 'region_id';
 
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country_id', 'region_id');
+    }
+
+    public function cities()
+    {
+        return $this->hasMany(City::class, 'region_id', 'region_id');
+    }
+
 }

@@ -37,7 +37,6 @@ class UniAdController extends Controller
     {
         $data = $request->validated();
         $ads = UniAd::create($data);
-
         return UniAdResource::make($ads);
     }
 

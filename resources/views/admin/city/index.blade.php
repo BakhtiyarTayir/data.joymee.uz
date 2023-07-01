@@ -39,7 +39,8 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Region</th>
+                                        <th>City</th>
+                                        <th>Region id</th>
                                         <th colspan="3" class="text-center">Действие</th>
                                     </tr>
                                     </thead>
@@ -48,6 +49,7 @@
                                             <tr>
                                                 <td>{{ $city->city_id }}</td>
                                                 <td> {{ $city->city_name }}</td>
+                                                <td> {{ $city->region_id }}</td>
                                                 <td><a href="{{ route('admin.city.show', $city->city_id)  }}"><i class="fa fa-eye"></i></a></td>
                                                 <td><a href="{{ route('admin.city.edit', $city->city_id)  }}"><i class="far fa-edit"></i></a></td>
                                                 <td>

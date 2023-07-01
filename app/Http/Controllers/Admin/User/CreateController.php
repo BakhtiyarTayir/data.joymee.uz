@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Admin\User;
+namespace App\Http\Controllers\Admin\Client;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class CreateController extends Controller
 {
     public function __invoke() {
-        $roles = User::getRoles();
+        $roles = Client::getRoles();
         return view('admin.user.create', compact('roles'));
     }
 }

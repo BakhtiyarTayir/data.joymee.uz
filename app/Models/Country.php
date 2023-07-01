@@ -62,5 +62,8 @@ use Illuminate\Database\Eloquent\Model;
         'country_alias' => 'required'
     ];
 
-
+    public function regions()
+    {
+        return $this->hasMany(UniRegion::class, 'country_id', 'country_id');
+    }
 }

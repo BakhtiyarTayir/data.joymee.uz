@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\User\StoreRequest;
-use App\Models\User;
+use App\Models\Client;
 use Illuminate\Support\Facades\Hash;
 
 class StoreController extends Controller
@@ -13,7 +13,7 @@ class StoreController extends Controller
     {
         $data = $request->validated();
         $data['password'] = Hash::make($data['password']);
-        User::firstOrCreate($data);
+        Client::firstOrCreate($data);
         return redirect()->route('admin.user.index');
 
     }
